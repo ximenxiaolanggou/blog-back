@@ -5,12 +5,12 @@ import lombok.Data;
 @Data
 public class TokenInfoDTO {
 
-    private String tokeName;
+    private String tokenName;
 
     private String tokenValue;
 
-    public TokenInfoDTO(String tokeName, String tokenValue) {
-        this.tokeName = tokeName;
+    public TokenInfoDTO(String tokenName, String tokenValue) {
+        this.tokenName = tokenName;
         this.tokenValue = tokenValue;
     }
 }
