@@ -23,11 +23,6 @@ public class BlogArticle {
     private String title;
 
     /**
-     * 副标题
-     */
-    private String subTitle;
-
-    /**
      * 内容
      */
     private String content;
