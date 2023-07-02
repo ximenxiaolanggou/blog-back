@@ -24,6 +24,16 @@ public class BlogCategoryServiceImpl extends ServiceImpl<BlogCategoryMapper, Blo
 
     @Autowired
     private BlogCategoryMapper categoryMapper;
+
+    /**
+     * 获取各个类别关联的文章数量
+     * @return
+     */
+    @Override
+    public List<BlogCategory> categoryArticleCount() {
+        return categoryMapper.categoryArticleCount();
+    }
+
     /**
      * 列表
      * @param searchKey

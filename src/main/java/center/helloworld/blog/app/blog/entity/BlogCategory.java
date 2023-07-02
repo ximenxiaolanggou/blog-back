@@ -1,6 +1,7 @@
 package center.helloworld.blog.app.blog.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
@@ -24,6 +25,12 @@ public class BlogCategory {
      * 角色描述
      */
     private String description;
+
+    /**
+     * 关联的文章数量
+     */
+    @TableField(exist = false)
+    private Integer relaticeArticleCount;
 
     /**
      * 创建时间

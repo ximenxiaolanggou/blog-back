@@ -19,6 +19,7 @@ public class SaTokenInterceptorConfirure implements WebMvcConfigurer {
                         "/blogArticle/findById/**",
                         "/blogArticle/page/**",
                         "/emq/client/publish",
+                        "/blogPre/**",
                         "/mqtt/**");
     }
 }

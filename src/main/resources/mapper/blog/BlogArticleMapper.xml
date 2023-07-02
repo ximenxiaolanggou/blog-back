@@ -7,7 +7,7 @@
         SELECT
             article.id,
             article.title,
-            article.sub_title,
+            left(content,50) as content,
             article.createtime,
             GROUP_CONCAT(DISTINCT(category.name) ORDER BY category.id DESC) category_names,
             GROUP_CONCAT(DISTINCT(tag.name) ORDER BY tag.id DESC) tag_names
@@ -21,7 +21,6 @@
             <if test="searchVO != null">
                 <if test="searchVO.searchKey != null and searchVO.searchKey.trim() != ''">
                         article.title LIKE CONCAT('%',#{searchVO.searchKey},'%')
-                    or  article.sub_title LIKE CONCAT('%',#{searchVO.searchKey},'%')
                 </if>
                 <if test="searchVO.categories !=null and searchVO.categories.size() > 0">
                     <foreach collection="searchVO.categories" item="category" separator="," open="AND category.id IN (" close=")">

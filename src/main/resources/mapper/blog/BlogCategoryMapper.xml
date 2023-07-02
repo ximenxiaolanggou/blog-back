@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="center.helloworld.blog.app.blog.mapper.BlogCategoryMapper">
+
+    <!-- 获取各个类别关联的文章数量 -->
+    <select id="categoryArticleCount" resultType="center.helloworld.blog.app.blog.entity.BlogCategory">
+        SELECT
+            id,
+            name,
+            COUNT(article_category.article_id) relatice_article_count
+        FROM
+            blog_category category
+            LEFT JOIN blog_article_category article_category ON category.id = article_category.category_id
+        GROUP BY category.id
+        ORDER BY category.createtime DESC
+    </select>
+</mapper>

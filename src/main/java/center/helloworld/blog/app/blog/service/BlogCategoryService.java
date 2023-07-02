@@ -21,4 +21,10 @@ public interface BlogCategoryService extends IService<BlogCategory> {
      * @return
      */
     List<BlogCategory> list(String searchKey);
+
+    /**
+     * 获取各个类别关联的文章数量
+     * @return
+     */
+    List<BlogCategory> categoryArticleCount();
 }
