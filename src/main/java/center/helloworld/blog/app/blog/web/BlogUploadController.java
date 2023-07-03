@@ -55,12 +55,12 @@ public class BlogUploadController {
             // 保存到数据库
             blogUpload.setUuid(replace);
             blogUpload.setName(file.getOriginalFilename());
-            blogUpload.setUrl(blogProperties.getImgPath() + "/" + newFileName);
+            blogUpload.setUrl("/static/blog/"  + newFileName);
             blogUploadService.save(blogUpload);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return Result.ok(blogProperties.getImgPath() + "/" + newFileName);
+        return Result.ok(blogUpload.getUrl());
     }
 
     /**
