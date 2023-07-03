@@ -7,7 +7,7 @@
         SELECT
             article.id,
             article.title,
-            left(content,50) as content,
+            left(content,150) as content,
             article.createtime,
             GROUP_CONCAT(DISTINCT(category.name) ORDER BY category.id DESC) category_names,
             GROUP_CONCAT(DISTINCT(tag.name) ORDER BY tag.id DESC) tag_names
