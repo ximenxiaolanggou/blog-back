@@ -24,7 +24,6 @@ public class SaTokenConfigure {
         config.setTokenStyle("uuid");               // token风格
         config.setIsLog(false);                     // 是否输出操作日志
         config.setTokenPrefix("bearer");
-        config.setIsReadHead(true);
 
         return config;
     }

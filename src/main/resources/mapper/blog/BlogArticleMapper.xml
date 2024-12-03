@@ -35,7 +35,15 @@
             </if>
         </where>
         GROUP BY article.id
-        ORDER BY article.id DESC
+        ORDER BY article.id
+        <choose>
+            <when test="searchVO.categories !=null and searchVO.categories.size() > 0">
+                ASC
+            </when>
+            <otherwise>DESC</otherwise>
+        </choose>
+
+
     </select>
 
     <!-- 根据ID查询 -->

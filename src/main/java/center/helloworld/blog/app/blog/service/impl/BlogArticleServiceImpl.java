@@ -7,8 +7,10 @@ import cn.hutool.http.HtmlUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.vladsch.flexmark.html.HtmlRenderer;
+import com.vladsch.flexmark.parser.Parser;
+import com.vladsch.flexmark.util.data.MutableDataSet;
 import org.apache.commons.lang3.StringUtils;
-import org.pegdown.PegDownProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import center.helloworld.blog.app.blog.entity.BlogArticle;
@@ -39,13 +41,15 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
      */
     @Override
     public PageResult page(Integer pageNumber, Integer pageSize, BlogArticleSearchVO searchVO) {
-        PegDownProcessor processor = new PegDownProcessor(Integer.MAX_VALUE);
+        MutableDataSet options = new MutableDataSet();
+        Parser parser = Parser.builder(options).build();
+        HtmlRenderer renderer = HtmlRenderer.builder(options).build();
         Page<BlogArticle> pageInfo = new Page<>(pageNumber, pageSize);
         IPage<BlogArticle> pr = articleMapper.page(pageInfo,searchVO);
         List<BlogArticle> articles = pr.getRecords();
         for (BlogArticle article : articles) {
             if(StringUtils.isNotBlank(article.getContent())) {
-                article.setContent(HtmlUtil.cleanHtmlTag(processor.markdownToHtml(article.getContent())));
+                article.setContent(HtmlUtil.cleanHtmlTag(renderer.render(parser.parse(article.getContent()))));
             }
         }
         return new PageResult(pr.getTotal(), articles);

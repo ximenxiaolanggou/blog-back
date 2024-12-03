@@ -1,7 +1,7 @@
 package center.helloworld.blog.common.util;
 
 import org.apache.commons.lang3.StringUtils;
-import sun.misc.BASE64Encoder;
+//import sun.misc.BASE64Encoder;
 
 import java.io.*;
 import java.net.URLEncoder;
@@ -17,16 +17,16 @@ public class FileUtils {
      * @return 编码后的下载附件名
      * @throws IOException
      */
-    public static String encodeDownloadFilename(String filename, String agent) throws IOException {
-        if (agent.contains("Firefox")) { // 火狐浏览器
-            filename = "=?UTF-8?B?" + new BASE64Encoder().encode(filename.getBytes("utf-8")) + "?=";
-            filename = filename.replaceAll("\r\n", "");
-        } else { // IE及其他浏览器
-            filename = URLEncoder.encode(filename, "utf-8");
-            filename = filename.replace("+", " ");
-        }
-        return filename;
-    }
+//    public static String encodeDownloadFilename(String filename, String agent) throws IOException {
+//        if (agent.contains("Firefox")) { // 火狐浏览器
+//            filename = "=?UTF-8?B?" + new BASE64Encoder().encode(filename.getBytes("utf-8")) + "?=";
+//            filename = filename.replaceAll("\r\n", "");
+//        } else { // IE及其他浏览器
+//            filename = URLEncoder.encode(filename, "utf-8");
+//            filename = filename.replace("+", " ");
+//        }
+//        return filename;
+//    }
 
     public static void main(String[] args) throws Exception {
         InputStream inputStream = new FileInputStream(new File("d:\\6fd9201b70796d2a33296cec58eb4ce.png"));

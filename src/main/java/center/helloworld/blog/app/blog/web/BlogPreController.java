@@ -50,7 +50,7 @@ public class BlogPreController {
      */
     @GetMapping("articleCount")
     public Result articleCount() {
-        int count = articleService.count();
+        long count = articleService.count();
         return Result.ok(count);
     }
 
@@ -61,7 +61,7 @@ public class BlogPreController {
      */
     @GetMapping("categoryCount")
     public Result categoryCount() {
-        int count = categoryService.count();
+        long count = categoryService.count();
         return Result.ok(count);
     }
 

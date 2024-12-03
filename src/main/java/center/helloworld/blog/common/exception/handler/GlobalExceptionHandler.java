@@ -3,6 +3,9 @@ package center.helloworld.blog.common.exception.handler;
 import center.helloworld.blog.common.base.Result;
 import center.helloworld.blog.common.exception.ApiException;
 import cn.dev33.satoken.exception.NotLoginException;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Path;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
@@ -14,9 +17,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import center.helloworld.blog.common.code.ResCode;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import javax.validation.Path;
 import java.util.List;
 import java.util.Set;
 

@@ -14,113 +14,28 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.1.RELEASE</version>
-        <relativePath/>
+        <version>3.1.7</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <mp.version>3.3.2</mp.version>
-        <p6spy.version>3.8.5</p6spy.version>
-        <hutool.version>5.5.9</hutool.version>
-<!--        <netty.version>4.1.78.Final</netty.version>-->
-<!--        <protobuf.version>3.6.1</protobuf.version>-->
-        <knife4j.version>2.0.7</knife4j.version>
-        <MQTT.version>1.2.2</MQTT.version>
-        <fastjson.version>1.2.47</fastjson.version>
-        <sa-token.version>1.29.0</sa-token.version>
-        <dynamsoft.version>8.8.0</dynamsoft.version>
-        <easyexcel.version>2.2.10</easyexcel.version>
-        <shiro.ehcache.version>1.2.6</shiro.ehcache.version>
-        <scala-bcrypt_2.10.version>2.3</scala-bcrypt_2.10.version>
-        <dynamic-datasource.version>2.5.7</dynamic-datasource.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <!-- MQTT -->
-            <dependency>
-                <groupId>org.eclipse.paho</groupId>
-                <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-                <version>${MQTT.version}</version>
-            </dependency>
-
-            <!-- Bcrypt算法依赖 -->
-            <dependency>
-                <groupId>com.github.t3hnar</groupId>
-                <artifactId>scala-bcrypt_2.10</artifactId>
-                <version>${scala-bcrypt_2.10.version}</version>
-            </dependency>
-
-            <!-- mp -->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mp.version}</version>
-            </dependency>
-
-            <!-- mp code generator -->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-generator</artifactId>
-                <version>${mp.version}</version>
-            </dependency>
-
-            <!-- datasource -->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-                <version>${dynamic-datasource.version}</version>
-            </dependency>
-
-            <!-- fastjson -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
-
-            <!-- hutool -->
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
-
-            <!-- p6spy -->
-            <dependency>
-                <groupId>p6spy</groupId>
-                <artifactId>p6spy</artifactId>
-                <version>${p6spy.version}</version>
-            </dependency>
-            <!-- sa-token -->
-            <dependency>
-                <groupId>cn.dev33</groupId>
-                <artifactId>sa-token-spring-boot-starter</artifactId>
-                <version>${sa-token.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-
         <!-- Bcrypt算法依赖 -->
         <dependency>
             <groupId>com.github.t3hnar</groupId>
             <artifactId>scala-bcrypt_2.10</artifactId>
-        </dependency>
-
-        <!-- MQTT -->
-        <dependency>
-            <groupId>org.eclipse.paho</groupId>
-            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+            <version>2.3</version>
         </dependency>
 
         <!-- mp -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.5.5</version>
         </dependency>
 
         <dependency>
@@ -128,46 +43,38 @@
             <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
 
-        <!-- mp code generator -->
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
+            <groupId>com.vladsch.flexmark</groupId>
+            <artifactId>flexmark-all</artifactId>
+            <version>0.62.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.pegdown</groupId>
-            <artifactId>pegdown</artifactId>
-            <version>1.6.0</version>
-        </dependency>
-
-        <!-- datasource -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-        </dependency>
 
         <!-- fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
         </dependency>
 
         <!-- hutool -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-        </dependency>
-
-        <!-- p6spy -->
-        <dependency>
-            <groupId>p6spy</groupId>
-            <artifactId>p6spy</artifactId>
+            <version>5.5.9</version>
         </dependency>
 
         <!-- connector -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.29</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.4</version>
         </dependency>
 
         <!-- actor -->
@@ -179,7 +86,8 @@
         <!-- sa-token -->
         <dependency>
             <groupId>cn.dev33</groupId>
-            <artifactId>sa-token-spring-boot-starter</artifactId>
+            <artifactId>sa-token-spring-boot3-starter</artifactId>
+            <version>1.39.0</version>
         </dependency>
 
         <!-- lombok -->
